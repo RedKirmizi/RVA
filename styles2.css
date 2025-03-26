@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap');
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #1c1c1c;
+    font-family: Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== HEADER ===== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Logo - Fixed on the Left */
+#logo {
+    position: absolute;
+    left: 20px;
+    height: 50px;
+}
+
+/* Centered Navigation */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+/* List Items */
+nav ul li {
+    padding: 0 20px;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Navigation Links */
+nav ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #F8F4EB;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== RESPONSIVENESS ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    #logo {
+        position: static;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .nav-container {
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    nav ul li {
+        padding: 5px 0;
+    }
+}
+
+#main {
+    position: relative;
+    background-image: url(media/main1.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+/* Dark overlay for dimming */
+#main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 50% black overlay */
+    z-index: 0; /* Stays behind text */
+}
+
+
+#content {
+    height: 100vh;
+    width: 100%;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Ensure content is on top of overlay */
+.right-h1 {
+    position: relative;
+    z-index: 1;
+    color: #F8F4EB;
+    text-align: right;
+    margin: 11.25rem 1.875rem 1.875rem 1.875rem;
+    font-size: 3rem;
+}
+
+.right-h1 p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.25rem;
+}
+
+.right-h1 h1 {
+    font-family: "Oswald", sans-serif;
+    padding-bottom: 20px;
+}
+
+/* From Uiverse.io by kamehame-ha */ 
+.button {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 12px 25px;
+    gap: 15px;
+    background-color: #F8F4EB;
+    outline: 3px #F8F4EB solid;
+    outline-offset: -3px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.button .text {
+    color: #1c1c1c;
+    font-weight: 700;
+    font-size: 1.2em;
+    transition: 400ms;
+}
+
+.button:hover {
+    background-color: transparent;
+}
+
+.button:hover .text {
+    color: #F8F4EB;
+}
+
+#credentials {
+    position: relative;
+    padding: 5rem 2rem; /* Reduced padding on smaller screens */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#credentials ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 10rem; /* Reduced gap for better scaling */
+    color: #F8F4EB;
+    font-weight: bold;
+    font-size: 1.5rem;
+    flex-wrap: wrap; /* Allows wrapping when space is limited */
+    justify-content: center; /* Centers items on smaller screens */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    #credentials ul {
+        gap: 5rem; /* Adjust gap for tablets */
+        font-size: 1.2rem; /* Slightly smaller text */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #credentials ul {
+        /* flex-direction: column; */
+        gap: 2rem;
+        text-align: center;
+    }
+
+    #credentials {
+        padding: 3rem 1rem;
+    }
+}
